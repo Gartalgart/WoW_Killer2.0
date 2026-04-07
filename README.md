@@ -1,8 +1,8 @@
-# 🎮 WoW Killer - RPG Management System
+# WoW Killer - RPG Management System
 
 Bienvenue dans le projet **WoW Killer**, un système de gestion de personnages et de comptes pour un RPG en mode console. Ce projet est développé en Python avec une base de données MySQL/MariaDB pour stocker les aventuriers et leurs créateurs.
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 Le projet permet actuellement de :
 - **Gestion de compte** : Inscription avec hachage de mot de passe sécurisé (bcrypt) et connexion.
@@ -11,21 +11,21 @@ Le projet permet actuellement de :
 - **Gestion de personnages** : Lister, consulter et bientôt modifier ses héros.
 - **Interface Console** : Une navigation simple via des menus interactifs.
 
-## 🛠️ Stack Technique
+## Stack Technique
 
 - **Langage** : [Python 3.10+](https://www.python.org/)
 - **Base de données** : [MySQL](https://www.mysql.com/) / [MariaDB](https://mariadb.org/)
 - **Sécurité** : `bcrypt` pour le hachage des mots de passe.
 - **Configuration** : `python-dotenv` pour la gestion des variables d'environnement.
 
-## 📋 Prérequis
+## Prérequis
 
 Avant de lancer le projet, assurez-vous d'avoir installé :
 - Python 3.10 ou supérieur.
 - Un serveur MySQL/MariaDB (ex: WAMP, XAMPP, Docker).
 - Le gestionnaire de paquets `pip`.
 
-## ⚙️ Installation & Configuration
+## Installation & Configuration
 
 ### 1. Cloner le projet
 ```bash
@@ -52,7 +52,7 @@ DB_USER=votre_utilisateur
 DB_PASSWORD=votre_mot_de_passe
 ```
 
-## 🎮 Lancement
+## Lancement
 
 Pour démarrer l'application, lancez le script principal depuis la racine :
 
@@ -60,7 +60,7 @@ Pour démarrer l'application, lancez le script principal depuis la racine :
 python project/src/main.py
 ```
 
-## 📂 Structure du projet
+## Structure du projet
 
 ```text
 WoW_killer/
@@ -77,9 +77,3 @@ WoW_killer/
 └── README.md               # Ce fichier !
 ```
 
-## 🤝 Contribution
-
-Ce projet a été réalisé dans un cadre d'apprentissage. N'hésitez pas à proposer des améliorations (GUI, nouveaux combats, etc.) !
-
----
-*Développé avec passion pour l'aventure.* 🛡️⚔️
