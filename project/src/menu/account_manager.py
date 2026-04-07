@@ -2,6 +2,7 @@
 import bcrypt
 from configuration import database
 from datetime import datetime
+from getpass import getpass
 
 # Menu pour gérer les options du compte utilisateur
 def manager_menu(user_account):
@@ -116,7 +117,7 @@ def change_password(user_account):
     try:
         attempts = 3
         while attempts > 0:
-            actual_password = input("Indiquez votre mot de passe actuel : ").encode("utf-8")
+            actual_password = getpass(prompt="Indiquez votre mot de passe actuel : ").encode("utf-8")
 
             # On vérifie d'abord que le mot de passe actuel est le bon
             result = database.database_connexion(False, "SELECT password FROM user_account WHERE ID = %s", (user_account,))
@@ -126,8 +127,8 @@ def change_password(user_account):
                 continue
 
             # Saisie et confirmation du nouveau mot de passe
-            _new_password = input("Indiquez votre nouveau mot de passe :").encode("utf-8")
-            validate_password = input("Confirmez le mot de passe: ").encode("utf-8")
+            _new_password = getpass(prompt="Indiquez votre nouveau mot de passe : ").encode("utf-8")
+            validate_password = getpass(prompt="Confirmez le mot de passe : ").encode("utf-8")
 
             if validate_password == _new_password:
                 # Hashage sécurisé du nouveau mot de passe avant insertion
@@ -144,4 +145,4 @@ def change_password(user_account):
         return 0
     except Exception as e:
         print(f"Une erreur est survenue lors de la modification du mot de passe : {e}")
-        return 0
+        return 0

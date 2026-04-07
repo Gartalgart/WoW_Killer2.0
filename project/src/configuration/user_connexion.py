@@ -1,5 +1,6 @@
 import configuration.database as conf
 import bcrypt
+from getpass import getpass
 
 # Fonction gérant la connexion des utilisateurs
 def login():
@@ -7,7 +8,7 @@ def login():
         attempts = 3
         while attempts > 0:
             username = input("Indiquez votre nom de compte : ")
-            password = input("Indiquez votre mot de passe : ").encode("utf-8")
+            password = getpass(prompt="Indiquez votre mot de passe : ").encode("utf-8")
 
             # On utilise BINARY en SQL pour que la comparaison respecte la casse (minuscules/majuscules)
             result = conf.database_connexion(False, "SELECT ID, password FROM user_account WHERE BINARY username = %s", (username,))
@@ -69,7 +70,7 @@ def set_username(username):
 # Enregistre le mot de passe de manière sécurisée
 def set_password(username):
     try:
-        pw = input("Indiquez votre mot de passe : ").encode('utf-8')
+        pw = getpass(prompt="Indiquez votre mot de passe : ").encode("utf-8")
         # On hash le mot de passe avec bcrypt avant de l'envoyer en base de données
         hashed_pw = bcrypt.hashpw(pw, bcrypt.gensalt()).decode('utf-8')
 
