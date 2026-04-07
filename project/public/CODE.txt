@@ -1,0 +1,41 @@
+-- ----------------------------------------------------------
+-- Script MYSQL pour mcd 
+-- ----------------------------------------------------------
+
+
+-- ----------------------------
+-- Table: RACE
+-- ----------------------------
+CREATE TABLE RACE (
+  ID_RACE INT NOT NULL AUTO_INCREMENT,
+  RACE_NAME VARCHAR(50) NOT NULL,
+  CLAN VARCHAR(30) NOT NULL,
+  CONSTRAINT RACE_PK PRIMARY KEY (ID_RACE)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: CLASS
+-- ----------------------------
+CREATE TABLE CLASS (
+  ID_CLASS INT NOT NULL AUTO_INCREMENT,
+  CLASS_NAME VARCHAR(50) NOT NULL,
+  EQUIPEMENT VARCHAR(50) NOT NULL,
+  CONSTRAINT CLASS_PK PRIMARY KEY (ID_CLASS)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: HERO
+-- ----------------------------
+CREATE TABLE HERO (
+  ID INT NOT NULL AUTO_INCREMENT,
+  CHARACTER_NAME VARCHAR(50) NOT NULL,
+  HEALTH INT NOT NULL,
+  DAMAGE FLOAT NOT NULL,
+  ID_RACE INT NOT NULL,
+  ID_CLASS INT NOT NULL,
+  CONSTRAINT HERO_PK PRIMARY KEY (ID),
+  CONSTRAINT HERO_ID_RACE_FK FOREIGN KEY (ID_RACE) REFERENCES RACE (ID_RACE),
+  CONSTRAINT HERO_ID_CLASS_FK FOREIGN KEY (ID_CLASS) REFERENCES CLASS (ID_CLASS)
+)ENGINE=InnoDB;
